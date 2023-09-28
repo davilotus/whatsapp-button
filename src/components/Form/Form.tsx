@@ -5,15 +5,15 @@ import { z } from 'zod';
 import './styles.scss';
 
 const schema = z.object({
-  name: z.string().min(3, { message: 'Por favor insira um nome válido' }),
+  name: z.string().min(3, { message: 'Please, enter a valid name' }),
   email: z
     .string()
-    .min(1, { message: 'Insira um email' })
-    .email({ message: 'Insira um email válido' }),
+    .min(1, { message: 'Enter an email' })
+    .email({ message: 'Enter a valid email' }),
   phone: z
     .string()
-    .min(14, { message: 'Telefone inválido' })
-    .max(15, { message: 'Telefone inválido' }),
+    .min(14, { message: 'Invalid phone number' })
+    .max(15, { message: 'Invalid phone number' }),
 });
 
 type FormDataProps = z.infer<typeof schema>;
@@ -69,7 +69,7 @@ export function Form() {
       </div>
       <div className="btn whatsapp">
         <button type="submit">
-          Iniciar conversa
+          Start conversation
           <i className="material-symbols-sharp">send</i>
         </button>
       </div>
