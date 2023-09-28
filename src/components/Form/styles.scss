@@ -1,0 +1,154 @@
+form {
+  width: calc(300px - 30px);
+  transition: all 0.3s ease-in-out;
+  float: right;
+  position: initial;
+
+  label {
+    line-height: 1;
+    margin-bottom: 0px;
+
+    &.error {
+      font-size: 10px;
+      padding: 0 5px;
+      position: absolute;
+      right: 0;
+      bottom: 3px;
+    }
+  }
+
+  .campo {
+    position: relative;
+    float: left;
+    width: 100%;
+    margin-bottom: 5px;
+  }
+
+  .form-control-wrap {
+    float: left;
+    width: 100%;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      border-top: 5px solid #e7ffe7;
+      border-right: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+      border-left: 5px solid #e7ffe7;
+      right: -10px;
+      top: 0;
+    }
+  }
+
+  input {
+    &[type='text'],
+    &[type='tel'],
+    &[type='email'] {
+      border-radius: 4px 0 4px 4px;
+      width: 100%;
+      padding: 10px;
+      background: #e7ffe7;
+      border: 1px solid #e7ffe7;
+      font-size: 1rem;
+    }
+
+    &.not-valid {
+      border-color: #f44336;
+    }
+
+    & + span {
+      font-size: 10px;
+      padding: 0 5px;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      color: #f44336;
+    }
+  }
+
+  .btn {
+    float: right;
+    margin-top: 5px;
+
+    button {
+      transition: all 0.3s ease-in-out;
+      background-color: #0c6156;
+      border: 1px solid #0c6156;
+      text-transform: initial;
+      cursor: pointer;
+      padding: 8px 12px;
+      color: #fff;
+      border-radius: 4px;
+      font-size: 1rem;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+
+      &:hover {
+        border-color: darken(#0c6156, 10%);
+        background-color: darken(#0c6156, 10%);
+        box-shadow: 0 1px 4px 0 rgba(#0c6156, 0.52);
+      }
+    }
+  }
+
+  .response-output {
+    font-size: 0.9rem;
+    line-height: 1.2;
+    float: left;
+    margin: 0;
+    width: 100%;
+  }
+
+  &::after {
+    transition: all 0.3s ease-in-out;
+    content: '';
+    position: absolute;
+    width: calc(100% + 4px);
+    height: calc(100% + 15px);
+    background: rgba(#fff, 0.93);
+    left: -2px;
+    top: -9px;
+    z-index: 5;
+    background-image: url(https://www.davidsonsilva.com.br/wp-content/uploads/2023/04/load.gif);
+    background-size: 70px;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &.submitting {
+    &::after {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  .response-output {
+    display: none;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+  }
+
+  &.sent {
+    height: 50px;
+
+    .response-output {
+      position: absolute;
+      width: 100%;
+      height: calc(100% + 15px);
+      background: #fff;
+      opacity: 1;
+      left: 0;
+      font-size: 1.4rem;
+      text-align: center;
+      top: 0;
+      align-items: center;
+      display: flex;
+    }
+  }
+}
